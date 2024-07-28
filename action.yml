@@ -1,0 +1,30 @@
+name: 'Amazee Labs Publisher'
+description: 'Helps to build and publish projects using Github Actions'
+author: 'Amazee Labs'
+
+branding:
+  icon: 'upload-cloud'
+  color: 'orange'
+
+inputs:
+  success_env_var_name:
+    description:
+      'Name of an environment variable which presence indicates that the
+      workflow run was successful'
+    required: true
+  cache_paths:
+    description: 'List of paths to cache'
+    required: false
+  cache_key:
+    description: 'Cache key'
+    required: false
+  github_token:
+    description: 'Github token'
+    required: false
+    default: ${{ github.token }}
+
+runs:
+  using: node20
+  main: dist/main/index.js
+  pre: dist/pre/index.js
+  post: dist/post/index.js

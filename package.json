@@ -1,0 +1,45 @@
+{
+  "name": "typescript-action",
+  "description": "GitHub Actions TypeScript template",
+  "version": "0.0.0",
+  "author": "Amazee Labs",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "engines": {
+    "node": "20.6.0",
+    "pnpm": "8.6.12"
+  },
+  "scripts": {
+    "package": "rm -rf dist && npx ncc build src/main.ts -o dist/main && npx ncc build src/pre.ts -o dist/pre && npx ncc build src/post.ts -o dist/post",
+    "prepare": "husky || true"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@actions/cache": "^3.2.4",
+    "@actions/core": "^1.10.1",
+    "@actions/github": "^6.0.0",
+    "@amazeelabs/publisher-shared": "^2.0.26",
+    "@octokit/rest": "^21.0.1",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@typescript-eslint/eslint-plugin": "^6.17.0",
+    "@typescript-eslint/parser": "^6.17.0",
+    "@vercel/ncc": "^0.38.1",
+    "eslint": "^7",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-no-only-tests": "^3.1.0",
+    "eslint-plugin-promise": "^7.0.0",
+    "eslint-plugin-react": "^7.35.0",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "husky": "^9.1.4",
+    "prettier": "^3.3.3",
+    "typescript": "^5.5.4"
+  }
+}
